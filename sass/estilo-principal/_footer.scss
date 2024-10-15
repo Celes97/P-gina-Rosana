@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    margin: 0; /* Elimina el margen por defecto */
+}
+#footer {
+    text-align: center;
+    font-family: "Adamina", serif;
+    background-color: rgb(245, 220, 251);
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    padding:1px 0; /* Espaciado interno */
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    font-size: 15px;
+}
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra los íconos horizontalmente */
+    gap: 10px; /* Espacio entre los íconos */
+    font-size:smaller;
+}
+div{
+    justify-content: center;
+    text-align: center;
+}

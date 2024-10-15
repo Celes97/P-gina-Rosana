@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!--estilo propio de CSS-->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
 
     <title>Document</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,10 @@
             <!--1 -primera estructura = cabecera/navegación-->
             <header>
                 <div class="container"> 
-                    <img class="logotipo" src="../images/Logo.jpg" alt="logo.jpg">
+                    <a href="../index.html"> <!-- Cambia el href según tu estructura de archivos -->
+                        <img class="logotipo" src="../images/Logo.jpg" alt="logo.jpg">
+                    </a>
+                    <h1>Rosana Tejidos con Amor</h1>
                 </div>
                 <nav id="nav">
                     <ul>
@@ -64,12 +67,26 @@
             </form>
 
                 <!-- 3- tercera estructura = pie de página-->
-            <footer id="footer">
-                <section>
-                    <a href="https://www.instagram.com/rosana.tejidos.con.amor?igsh=MWZxNjM5b3pjb29zaw=="><i class="fa-brands fa-instagram"></i></a>
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <i class="fa-regular fa-envelope"></i>
-                </section>
-            </footer>
+                <footer id="footer">
+                    <section>
+                        <ul> 
+                        </ul>
+                    </section>
+                    <h5>Redes sociales</h5>
+                    <section>
+                        <a href="https://www.instagram.com/rosana.tejidos.con.amor?igsh=MWZxNjM5b3pjb29zaw==">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Rosana Tejidos con Amor</span>
+                        </a>
+                        <div>
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </div>
+                        <div>
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>Email</span>
+                        </div>
+                    </section>
+                </footer>
 </body>
 </html>

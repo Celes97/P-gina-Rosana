@@ -1,0 +1,17 @@
+header nav ul{ 
+    display: flex;
+    background-color: rgb(245, 220, 251) !important; 
+    justify-content: flex-end !important; 
+    padding: 5px; 
+    gap: 30px; 
+}
+.container{
+    display: grid;
+    justify-items: center;
+}
+.logotipo {
+    width: 100px; 
+    height: auto;
+    max-width: 1000px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+}
