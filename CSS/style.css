@@ -318,7 +318,8 @@ header nav ul a {
 
 .venta-item {
   background-color: #f8f7f7;
-  width: 150px; /* Ancho fijo para cada item */
+  width: 50%; /* Ancho fijo para cada item */
+  height: 100%;
   border: #f0efef solid;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative; /* Para las imágenes superpuestas */
