@@ -6,6 +6,92 @@ body {
   margin: 0; /* Elimina el margen por defecto */
 }
 
+#carritoIcono {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  color: rgb(153, 100, 166);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1px;
+  cursor: pointer;
+  z-index: 5; /* Para asegurarnos que esté sobre otros elementos */
+}
+
+#carritoIcono .fa-cart-shopping {
+  font-size: 25px;
+}
+
+#carritoIcono span {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: rgb(184, 173, 184);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Estilos básicos para los productos */
+.producto {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.producto h3 {
+  font-size: 18px;
+}
+
+.producto p {
+  font-size: 14px;
+}
+
+.producto button {
+  margin-top: 10px;
+}
+
+.stock-disponible {
+  color: green;
+}
+
+.sin-stock {
+  color: red;
+  display: none;
+}
+
+.form-email {
+  display: none;
+  margin-top: 10px;
+}
+
+/* Estilos del carrito cuando se muestra */
+#carrito {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 2px solid #000;
+  display: none;
+}
+
+#carrito ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#carrito li {
+  margin-bottom: 10px;
+}
+
 #footer {
   text-align: center;
   font-family: "Adamina", serif;
@@ -108,6 +194,46 @@ h1 {
   transition: border-color 0.3s; /* Suaviza la transición */
 }
 
+/*imagen en grande */
+/* Estilos para la visualización normal de la imagen */
+.imagen {
+  width: 100%;
+  height: auto;
+  cursor: pointer; /* Cambia el cursor para indicar que la imagen es clickeable */
+}
+
+/* Contenedor de la imagen ampliada */
+.zoom-container {
+  position: fixed; /* Fijado sobre la pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  display: none; /* Ocultado inicialmente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Se superpone sobre otros elementos */
+  cursor: pointer; /* Mostrar el cursor de "apuntar" */
+}
+
+/* Imagen ampliada */
+.zoom-image {
+  max-width: 90%;
+  max-height: 90%;
+  transition: transform 0.2s ease-out;
+  cursor: zoom-in;
+}
+
+/* Para el cursor cuando se pasa sobre la imagen ampliada */
+.zoom-container:hover .zoom-image {
+  cursor: zoom-out;
+}
+
+
+
+
+
 .muestra1, .muestra2, .muestra3 {
   width: 500px;
   height: auto;
@@ -165,7 +291,7 @@ h2 {
 a {
   font-family: "Adamina", serif !important;
   color: mediumorchid !important;
-  font-size: medium;
+  font-size:small;
   flex-wrap: wrap;
   margin: 0;
 }

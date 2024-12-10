@@ -14,11 +14,28 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Adamina&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+        <!--Java Script-->
+        <script defer src="js/main.js"></script>
+
 <!--AOS animaciones-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
 <meta name="description" content="tejidos a mano a dos agujas">
 <meta name="keywords" content="tejido, tejido a mano, sweater, chaleco, cárdigan, cárdigan tejido">
         <title>Rosana Tejidos con Amor</title>
+
+<!-- Ícono del carrito -->
+<div id="carritoIcono" onclick="mostrarCarrito()">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cantidadCarrito">0</span> <!-- Muestra la cantidad de productos -->
+</div>
+
+<!-- Carrito de compras -->
+<div id="carrito" style="display:none;">
+    <h2>Resumen del Carrito</h2>
+    <ul id="carritoLista"></ul>
+    <p id="total">Total: $0</p>
+</div>
     </head>
 
     <body>
@@ -29,7 +46,6 @@
                 </a>
                 <h1>Rosana Tejidos con Amor</h1>
             </div>
-            
 
             <!--Boton de busqueda <form action="/search" method="get">
                 <input type="text" name="query" placeholder="Buscar...">
@@ -46,8 +62,6 @@
                 </div>
             </nav>
 <!--ejemplo de menu boostrop-->
-
-
             <nav id="nav">
                 <ul>
                     <a href="pages/contacto.html"><menu>Contacto</menu></a>
@@ -56,9 +70,7 @@
                     <a href="pages/quienes-somos.html"><menu>Quienes somos</menu></a>
                 </ul>
             </nav>
-
         </header>
-            
         <!--2- segunda estructura = contenido-->
             <div class="inicio">
                 <img class="muestra1" src="images/inicio.jpg" alt="muestra1" data-aos="zoom-in" data-aos-duration="1500">
@@ -67,36 +79,73 @@
             </div>
             <h4>Trabajos realizados</h4>
             <div class="ventas">
-                <div class="venta-item">
-                    <div class="imagen-container">
-                        <img class="imagen" src="images/venta1.jfif" alt="Imagen Original" onclick="openModal(this)" />
-                        <img class="imagen-cambio" src="images/venta4.jpg" alt="Imagen de Cambio" />
-                    </div>
-                    <h3>Sweater</h3>
-                    <div id="modal" class="modal" onclick="closeModal()">
-                        <span class="close">&times;</span>
-                        <img class="modal-content" id="modal-image">
-                        <div id="caption"></div>
-                    </div>
-                    
-                    <script src="script.js"></script>
-                </div>
-                <div class="venta-item">
-                    <div class="imagen-container">
-                        <img class="imagen" src="images/venta2.jpg" alt="Imagen Original" />
-                        <img class="imagen-cambio" src="images/venta5.jpeg" alt="Imagen de Cambio" />
-                    </div>
-                    <h3>Buzo</h3>
-                </div>
-                <div class="venta-item">
-                    <div class="imagen-container">
-                        <img class="imagen" src="images/venta3.jpg" alt="Imagen Original" />
-                        <img class="imagen-cambio" src="images/venta6.jfif" alt="Imagen de Cambio" />
-                    </div>
-                    <h3>Otro</h3>
-                </div>
+
+<!-- Producto 1 -->
+<div class="venta-item" id="producto1">
+    <div class="imagen-container">
+        <img class="imagen" src="images/venta1.jfif" alt="Imagen Original" />
+        <img class="imagen-cambio" src="images/venta4.jpg" alt="Imagen de Cambio" />
+    </div>
+    <div>
+        <p>$150.000</p>
+        <p class="stock-disponible" id="stockProducto1" data-stock-inicial="1">Stock disponible: 1</p>
+        <button id="agregarProducto1" onclick="agregarAlCarrito('Producto 1', 150000, 'stockProducto1')">Agregar al carrito</button>
+        <button id="eliminarProducto1" style="display: none;" onclick="eliminarProducto(0)">Eliminar del carrito</button>
+    </div>
+    <h3>Sweater</h3>
+</div>
+
+<!-- Producto 2 -->
+<div class="venta-item" id="producto2">
+    <div class="imagen-container">
+        <img class="imagen" src="images/venta2.jpg" alt="Imagen Original" />
+        <img class="imagen-cambio" src="images/venta5.jpeg" alt="Imagen de Cambio" />
+    </div>
+    <div>
+        <p>$210.000</p>
+        <p class="stock-disponible" id="stockProducto2" data-stock-inicial="1">Stock disponible: 1</p>
+        <button id="agregarProducto2" onclick="agregarAlCarrito('Producto 2', 210000, 'stockProducto2')">Agregar al carrito</button>
+        <!-- Se añadirá el botón para eliminar el producto del carrito aquí si ya está en el carrito -->
+        <button id="eliminarProducto2" style="display: none;" onclick="eliminarDelCarrito('Producto 2', 'stockProducto2')">Eliminar del carrito</button>
+    </div>
+    <h3>Buzo</h3>
+</div>
+
+<!-- Producto 3 -->
+<div class="venta-item" id="producto3">
+    <div class="imagen-container">
+        <img class="imagen" src="images/venta3.jpg" alt="Imagen Original" />
+        <img class="imagen-cambio" src="images/venta6.jfif" alt="Imagen de Cambio" />
+    </div>
+    <div>
+        <p>$180.000</p>
+        <p class="stock-disponible" id="stockProducto3" data-stock-inicial="1">Stock disponible: 1</p>
+        <button id="agregarProducto3" onclick="agregarAlCarrito('Producto 3', 180000, 'stockProducto3')">Agregar al carrito</button>
+        <!-- Se añadirá el botón para eliminar el producto del carrito aquí si ya está en el carrito -->
+        <button id="eliminarProducto3" style="display: none;" onclick="eliminarDelCarrito('Producto 3', 'stockProducto3')">Eliminar del carrito</button>
+    </div>
+    <h3>Otro</h3>
+</div>
+
+
+
             </div>
             
+            <!-- Carrito de Compras -->
+            <div id="carrito">
+                <h2>Carrito de Compras</h2>
+                <ul id="carrito-lista"></ul>
+                <p><strong>Total:</strong> $<span id="total">0</span></p>
+            </div>
+            
+
+            <div class="form-email" id="formEmail1">
+                <label for="email1">¿Quieres un modelo igual? Déjanos tu email:</label>
+                <input type="email" id="email1" placeholder="Tu email">
+                <button onclick="enviarEmail('Producto 1')">Enviar</button>
+            </div>
+        </div>
+
         <main>
             <section>
                 <article>
@@ -113,20 +162,22 @@
             <section>
                 <ul> 
                 </ul>
-            </section>
-            <h5>Redes sociales</h5>
-            <section>
+
                 <a href="https://www.instagram.com/rosana.tejidos.con.amor?igsh=MWZxNjM5b3pjb29zaw==">
                     <i class="fa-brands fa-instagram"></i>
                     <span>Rosana Tejidos con Amor</span>
                 </a>
                 <div>
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp</span>
+                    <a id="whatsappIcono" href="https://wa.me/1166218797" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
                 </div>
                 <div>
-                    <i class="fa-regular fa-envelope"></i>
-                    <span>Email</span>
+                    <a id="emailIcono" href="mailto:resuad@yahoo.com.ar?subject=Consulta%20sobre%20producto" target="_blank">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
                 </div>
             </section>
         </footer>
@@ -136,5 +187,6 @@
 <script>
     AOS.init();
 </script>
+
     </body>
 </html>
